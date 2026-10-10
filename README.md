@@ -56,3 +56,182 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+
+
+# Laravel + React Exam Boilerplate
+
+A reusable full-stack boilerplate using Laravel, React (JavaScript JSX), Vite, and MySQL. Designed for CRUD systems and timed programming exams.
+
+## Tech Stack
+
+- **Backend:** Laravel 13
+- **Frontend:** React (JavaScript JSX) + Vite
+- **API Requests:** Axios
+- **Database:** MySQL
+- **Development Tools:** Composer, Node.js, npm, Git, and VS Code
+
+## Prerequisites
+
+Install the following before setting up the project:
+
+- PHP compatible with the Laravel version
+- Composer
+- Node.js and npm
+- MySQL through XAMPP or Laragon
+- Git
+- Visual Studio Code (recommended)
+
+## Installation and Setup
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/jhnyz/boilerplate.git
+cd boilerplate
+```
+
+### 2. Install Dependencies
+
+Install the Laravel dependencies:
+
+```bash
+composer install
+```
+
+Install the frontend dependencies:
+
+```bash
+npm install
+```
+
+### 3. Configure the Environment
+
+Create your local environment file:
+
+**Windows PowerShell:**
+
+```powershell
+Copy-Item .env.example .env
+```
+
+Generate the Laravel application key:
+
+```bash
+php artisan key:generate
+```
+
+### 4. Create the MySQL Database
+
+Start MySQL through XAMPP or Laragon.
+
+Open phpMyAdmin and create a database named:
+
+```text
+exam_db
+```
+
+### 5. Configure Database Credentials
+
+Open the `.env` file and configure your database settings according to your local MySQL setup:
+
+```dotenv
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=exam_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Update the username and password if your MySQL configuration is different.
+
+### 6. Run Database Migrations
+
+```bash
+php artisan migrate
+```
+
+This creates the database tables required by the application.
+
+## Running the Application
+
+You need two terminal windows.
+
+### Terminal 1: Start the Laravel Backend
+
+```bash
+php artisan serve
+```
+
+Backend URL: `http://127.0.0.1:8000`
+
+### Terminal 2: Start the React Frontend Build Server
+
+```bash
+npm run dev
+```
+
+Open the application in your browser:
+
+`http://127.0.0.1:8000`
+
+Keep both terminal processes running while using the application.
+
+## Features
+
+- Product CRUD (Create, Read, Update, Delete)
+- Laravel API endpoints
+- React dashboard
+- Search and product management interface
+- MySQL database integration
+- Responsive user interface
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| GET | `/api/products` | Retrieve all products |
+| POST | `/api/products` | Create a product |
+| GET | `/api/products/{id}` | Retrieve a specific product |
+| PUT/PATCH | `/api/products/{id}` | Update a product |
+| DELETE | `/api/products/{id}` | Delete a product |
+
+## Troubleshooting
+
+**Database connection error**
+
+- Ensure MySQL is running.
+- Check the database name and credentials in `.env`.
+- Confirm that the `exam_db` database exists.
+
+**Missing dependencies**
+
+```bash
+composer install
+npm install
+```
+
+**Application key missing**
+
+```bash
+php artisan key:generate
+```
+
+**Database tables missing**
+
+```bash
+php artisan migrate
+```
+
+## Security Notes
+
+- Never commit the `.env` file.
+- Do not upload passwords, API keys, or other secrets to GitHub.
+- Keep `.env.example` free of real credentials.
+
+## License
+
+For educational and personal project use.
